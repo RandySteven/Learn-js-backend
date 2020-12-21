@@ -1,5 +1,7 @@
 const express = require('express');
 
+const {addUser, getUser, updateUser, deleteUser} = require('../controller/users');
+
 const router = express.Router();
 /*
 (GET) localhost:3000/user/ -> ambil semua user
@@ -11,13 +13,13 @@ const router = express.Router();
 
 router
     .route('/')
-        .get((req, res)=> res.send({message:"GET all user"}))
-        .post((req, res)=> res.post({message:"POST user"}));
+        .get(getUser)
+        .post(addUser);
 
 router
     .route('/:userId')
-    .get((req, res)=> res.send({message:"GET user"}))
-        .patch((req, res)=> res.send({message:"PATCH user"}))
-        .delete((req, res)=> res.post({message:"DELETE user"}));
+    .get(getUser)
+        .patch(updateUser)
+        .delete(deleteUser);
 
 module.exports = router;
