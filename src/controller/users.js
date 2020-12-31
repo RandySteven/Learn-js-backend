@@ -5,7 +5,7 @@ const conn = require('../config/db');
  * @param {import('express').Response} res 
  */
 const addUser = async (req, res) => {
-    const { email , password } = req.body;
+    const {email, password} = req.body;
     const conn = await pool.getConnection();
     let query = `INSERT INTO users (email, password) VALUES ('${email}', '${password}')`;
     const [result] = await conn.query(query);

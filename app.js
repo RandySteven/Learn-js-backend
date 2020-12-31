@@ -5,7 +5,7 @@ const userRole = require('./src/routes/users');
 
 const app = express();
 
-app.use('/user', userRole);
+app.use('/user/', userRole);
 
 // app.get('/', (req, res)=>{
 //     let query = "SELECT * FROM users";
