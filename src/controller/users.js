@@ -1,11 +1,11 @@
-const conn = require('../config/db');
+const pool = require('../config/db');
 /**
  * Add user controller
  * @param {import('express').Request} req 
  * @param {import('express').Response} res 
  */
 const addUser = async (req, res) => {
-    const {email, password} = req.body;
+    const { email , password } = req.body;
     const conn = await pool.getConnection();
     let query = `INSERT INTO users (email, password) VALUES ('${email}', '${password}')`;
     const [result] = await conn.query(query);
@@ -38,7 +38,7 @@ const updateUser = (req, res) => {
  * @param {import('express').Response} res 
  */
 const deleteUser = (req, res) => {
-    res.post({message:"DELETE user"})
+    res.post({message:"DELETE user"});
 }
 
 
